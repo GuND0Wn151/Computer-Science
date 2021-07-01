@@ -5,6 +5,6 @@ esc=input("Enter ending delimiter ")
 print("the stuffed data: ",flag,end=" ")
 for i in a:
     if i in [esc,start]:
-        print(esc,end=" ")
+        print(i,end=" ")
     print(i,end=" ")
 print(flag)
