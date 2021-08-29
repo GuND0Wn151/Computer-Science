@@ -1,3 +1,7 @@
+'''
+L here acts a storage of the values of the fibo numbers
+so we dont need to travel again the same path
+'''
 def fib(n,l={}):
       if n  in l.keys():
             return l[n]
