@@ -1,0 +1,8 @@
+[
+		{"name":"Sheldon","age":24,"sal":100000},
+		{"name":"Penny","age":25,"sal":10000},
+		{"name":"Howard","age":29,"sal":14000},
+		{"name":"Raj","age":29,"sal":20000},
+		{"name":"Lenard","age":26,"sal":16000},
+		{"name":"Amy","age":27,"sal":13000}
+]
