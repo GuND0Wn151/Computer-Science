@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Addition</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="utilities.js"></script>
+</head>
+<body>
+<div ng-app = "MultiplicationApp" ng-controller="MulController">
+First Name: <input type="text" ng-model="a"><br>
+Last Name: <input type="text" ng-model="b"><br>
+<input type="button" ng-click="c=mul()" value="Mul">
+<h1> The mul Result is {{c}} </h1>
+<script>
+	var mulapp = angular.module('MultiplicationApp',[]);
+	mulapp.controller('MulController', function($scope) {
+	$scope.a=15;
+	$scope.b=16;
+	$scope.mul = function() {
+	return (parseInt($scope.a) * parseInt($scope.b));
+};
+});
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>loggig</title>
+	<script>
+		var app = angular.module('myApp',[])
+		app.controller("myCtrl", function($log){
+			$log.log('this is log');
+			$log.error('this is error');
+			$log.info('this is info');
+			$log.warn('this i warning');
+			$log.debug('this is debbuging');
+
+		});
+	</script>
+</head>
+<body ng-app='myApp'>
+	<form id="form1">
+		<div ng-controller="myCtrl">
+			<p><h1>go to inspect , through browser blackbox<br/>to see the console for different loggers</h1></p>
+		</div>
+	</form>
+
+</body>
+</html>
