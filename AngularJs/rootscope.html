@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>RootScope</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+	<div ng-app="myapp" ng-controller='myctrl'>
+		<p>{{message2}}</p>
+		<p>{{myctrlmsg}}</p>
+		<div ng-controller='myctrl2'>
+			<p>{{message2}}</p>
+			<p>{{myctrl2msg}}</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var app= angular.module('myapp',[])
+		app.controller('myctrl',function($scope,$rootScope){
+			$scope.message="hello"
+			$scope.myctrlmsg='parentmessage'
+			$rootScope.message2="Common message"
+		})
+		app.controller('myctrl2',function($scope){
+			$scope.myctrl2msg='childmessage'
+		})
+	</script>
+</body>
+</html>

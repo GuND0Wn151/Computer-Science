@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Http server Data</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body >
+<table ng-app='myapp' ng-controller='myctrl'>
+	<tr>
+		<th>Name</th><th>Age</th><th>Salary Rating</th>
+	</tr>
+
+		<tr ng-repeat='emp in Data'> 
+			<td>{{emp.name}}</td>
+			<td>{{emp.age}}</td>
+			<td>{{emp.sal }}</td>
+		</tr>
+</table>
+<script type="text/javascript">
+	var app= angular.module("myapp",[])
+	app.controller("myctrl",function ($scope,$http){
+		$http.get('data.txt').success(function(response){
+			$scope.Data=response
+			console.log(response)
+		})
+	})
+	
+</script>
+
+</body>
+</html>

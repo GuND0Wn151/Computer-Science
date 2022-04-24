@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Studen Roll No</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+<div ng-app='myapp' >
+	<form name="form">
+		Name: <input type="text" name="name" ng-model='name' required>
+		<span ng-show='form.name.$error.required'>Required!</span><br/><br/>
+
+		RollNo: <input type="text" name="roll" ng-model='roll' required my-validator>
+		<span ng-show='form.roll.$error.required'>Required!</span><br/><br/>
+
+		
+
+	</form>
+		<p>The State is : </p>
+		<span style="color:red">{{form.roll.$valid}}</span>
+
+	<script type="text/javascript">
+		var app = angular.module('myapp',[])
+		app.directive('myValidator',function(){
+			return{
+				require:'ngModel',
+				link:function(scope,element,attr,mCtrl){
+					function myValidation(value){
+						if(value.indexOf("19881A")>-1){
+							mCtrl.$setValidity("charE",true)
+						}else{
+							mCtrl.$setValidity("charE",false)
+						}
+						return value	
+					}
+					mCtrl.$parsers.push(myValidation)
+				}
+			}
+		})
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mouse Events</title>
+	<script src="angular.js"></script>
+
+</head>
+<body>
+<div ng-app='myapp' ng-controller='myctrl'>
+	<h3 ng-mousemove="count=count+ 1">Mouse move !</h3>
+	<p>{{count}}</p>
+	<h3 ng-mouseleave="count2=count2+ 1">key leave !</h3>
+	<p>{{count2}}</p>
+	<h3 ng-mouseover="count3=count3+ 1">key over!</h3>
+	<p>{{count3}}</p>
+</div>
+
+<script type="text/javascript">
+	var app=angular.module("myapp",[])
+	app.controller("myctrl",function($scope){
+		$scope.count=0;
+		$scope.count2=0;
+		$scope.count3=0;
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form Validation</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+<div ng-app='myapp' ng-controller='myctrl'>
+	<form name='form' ng-submit='submit()'>
+		UserName:  <input type="text" name="name" ng-model='name' required>
+		<span ng-show="form.name.$error.required">Required!!</span><br /><br />
+
+		Email:  <input type="text" name="mail" ng-model='mail' required>
+		<span ng-show="form.mail.$error.required">Required!!</span><br /><br />
+
+		Password: <input type="password" name="pass" ng-model='pass' required>
+		<span ng-show='form.pass.$error.required'>Required!!</span><br /><br />
+
+		<button type="submit">Submit</button><br /><br />
+		<span>{{msg}}</span>
+	</form>
+	
+	<script type="text/javascript">
+		angular.module('myapp',[]).controller('myctrl',function($scope){
+			$scope.submit=function(){
+				$scope.msg='Submited!'
+			}
+		})
+	</script>
+</div>
+</body>
+</html>

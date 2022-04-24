@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Table Even Odd</title>
+	<style type="text/css">
+		table,th,td{
+			border:1px solid black;
+			padding:2px;
+		}
+		table tr:nth-child(odd) {
+			background-color:aqua;
+		}
+		table tr:nth-child(even) {
+			background-color:floralwhite;
+		}
+	</style>
+
+	<script src="angular.js"></script>
+
+</head>
+<body ng-app='myapp' ng-controller='myctrl' >
+<table >
+	<tr>
+		<th>Name</th><th>Age</th>
+	</tr>
+
+		<tr ng-repeat='emp in Data'> 
+			<td>{{emp.name}}</td>
+			<td>{{emp.age}}</td>
+		</tr>
+</table>	
+
+<script type="text/javascript">
+	var app= angular.module('myapp',[])
+	app.controller("myctrl",function($scope){
+		$scope.Data=[
+		{"name":"Sheldon","age":24},
+		{"name":"Penny","age":25},
+		{"name":"Howard","age":29},
+		{"name":"Raj","age":29},
+		{"name":"Lenard","age":26},
+		{"name":"Amy","age":27},
+		]
+	})
+
+</script>
+
+</body>
+</html>

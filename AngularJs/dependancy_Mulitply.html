@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dependency Mulitply</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+<div ng-app='myapp' ng-controller='myctrl'>
+	<p>Enter a 1st Number:<input type="number" ng-model='one'></p>
+	<p>Enter a 2nd Number:<input type="number" ng-model='two'></p>
+	<button ng-click="multiply()">Multiply</button>
+	<p>Result: {{result}}</p>
+
+
+	<script type="text/javascript">
+		var app=angular.module('myapp',[])
+
+		app.factory("MathService",function(){
+			var factory={}
+			factory.multiply=function(a,b){
+				return a*b
+			}
+			return factory
+		})
+		app.service("Calc",function(MathService){
+			this.mult=function(a,b){
+				return MathService.multiply(a,b)
+			}
+		})
+		app.controller('myctrl',function($scope,Calc){
+			$scope.one=0
+			$scope.two=0
+			$scope.result=Calc.mult($scope.one,$scope.two)
+			$scope.multiply=function(){
+				console.log($scope.one)
+				console.log($scope.two)
+				$scope.result=Calc.mult($scope.one,$scope.two)
+			}
+		})
+	</script>
+</div>
+</body>
+</html>

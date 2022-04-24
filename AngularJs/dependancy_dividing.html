@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dividing Number</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+
+<div ng-app='myapp' ng-controller='myctrl' >
+	First no: <input type="number" ng-model='first'><br/><br/>
+
+	Second no: <input type="number" ng-model='second'><br/><br/>
+
+	<button ng-click='divide()'>Divide</button><br/><br/>
+	<p>Result: {{result}}</p>
+</div>
+
+<script type="text/javascript">
+	var app=angular.module('myapp',[])
+	app.factory("Math",function(){
+		var factory={}
+		factory.divide=function(a,b){
+			return a/b;
+		}
+		return factory
+	})
+	app.service("Calc",function(Math){
+		this.divd=function(a,b){
+			return Math.divide(a,b)
+		}
+	})
+	app.controller("myctrl",function($scope,Calc){
+		$scope.first=0
+		$scope.second=0
+		$scope.result=0
+		$scope.divide=function(){
+			$scope.result=Calc.divd($scope.first,$scope.second)
+		}
+	})
+
+</script>
+
+</body>
+</html>

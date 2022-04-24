@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Custom Validation</title>
+	<script src="angular.js"></script>
+</head>
+<body>
+<div ng-app='myapp' >
+	<form name='form'>
+		EmployeeId: <input type="text" ng-model='id' name="id" required my-directive>
+		Password: <input type="password" name="pass" required>
+		<p>The input's valid state is: </p>
+		
+	</form>
+	<h1 style="color:red">{{form.id.$valid}}</h1>
+	<script type="text/javascript">
+		var app = angular.module('myapp',[])
+		app.directive('myDirective',function(){
+			return{
+				require:'ngModel',
+				link:function(scope,element,attr,mCtrl){
+					function myValidation(value){
+						if(value.indexOf("VCE")>-1){
+							mCtrl.$setValidity("charE",true)
+						}else{
+							mCtrl.$setValidity("charE",false)
+						}
+						return value	
+					}
+					mCtrl.$parsers.push(myValidation)
+				}
+			}
+		})
+	</script>
+	<p>The User Name can be Used for Future reference in the site</p>
+</div>
+</body>
+</html>

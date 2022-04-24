@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Custom Filter</title>
+	<script src="angular.js"></script>
+	<style type="text/css">
+		table,th,td{
+			border:1px solid black;
+			padding:1px;
+		}
+	</style>
+</head>
+<body ng-app='myapp' ng-controller='myctrl' >
+<table >
+	<tr>
+		<th>Name</th><th>Age</th><th>Salary Rating</th>
+	</tr>
+
+		<tr ng-repeat='emp in Data | limitTo : 3'> 
+			<td>{{emp.name}}</td>
+			<td>{{emp.age}}</td>
+			<td>{{emp.sal }}</td>
+		</tr>
+</table>
+<script type="text/javascript">
+	var app= angular.module('myapp',[])
+	app.controller("myctrl",function($scope){
+		$scope.Data=[
+		{"name":"Sheldon","age":24,"sal":100000},
+		{"name":"Penny","age":25,"sal":10000},
+		{"name":"Howard","age":29,"sal":14000},
+		{"name":"Raj","age":29,"sal":20000},
+		{"name":"Lenard","age":26,"sal":16000},
+		{"name":"Amy","age":27,"sal":13000},
+		]
+	})
+	
+</script>
+</body>
+</html>
