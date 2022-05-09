@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ng-hide,ng-show</title>
+	<script src="angular.js"></script>
+</head>
+<body ng-app=''>
+<input type="checkbox" ng-model='show' name="show">
+	Show?
+</input>
+
+<input type="checkbox"   ng-model='hide' name="hide">
+	Hide?
+</input>
+
+<h2 ng-show="show">This is Message to Show</h2>
+<h2  ng-hide="hide">This is the Message to Hide</h2>
+</body>
+</html>

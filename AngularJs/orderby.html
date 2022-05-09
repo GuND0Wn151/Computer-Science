@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>orderby</title>
+	<script src="angular.js"></script>
+
+</head>
+<body ng-app='myapp' ng-controller='myctrl'>
+
+<ul>
+	<li ng-repeat="i in cast | orderBy : 'city'">{{i.name+" lives in "+i.city}}</li>
+</ul>
+
+<script type="text/javascript">
+	
+	var app=angular.module('myapp',[])
+	app.controller('myctrl',function($scope){
+		$scope.cast = [
+        {"name" : "sheldon" ,"city" : "USA"},
+        {"name" : "howard", "city" : "Israel"},
+        {"name" : "penny", "city" : "Australia"},
+        {"name" : "lenard", "city" : "japan"},
+        {"name" : "Raj", "city" : "India"},
+        {"name" : "Ammy", "city" : "London"},
+        {"name" : "Bernedet", "city" : "tokyo"}
+    ];
+	})
+	
+</script>
+</body>
+</html>
