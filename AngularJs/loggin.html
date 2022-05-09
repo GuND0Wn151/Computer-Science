@@ -1,0 +1,21 @@
+<html> 
+<head> 
+<title>Logging </title> 
+<script src="angular.js"></script>
+</head> 
+<body ng-app="myapp"> 
+ 
+<div ng-controller="myController"> 
+<p> <h3> Go to Inspect => Console <br/>    </h3>
+<script> 
+var app = angular.module('myApp', []) 
+app.controller("myController", function ($log) { 
+            $log.log('This is log.'); 
+            $log.error('This is error.'); 
+            $log.info('This is info.'); 
+            $log.warn('This is warning.'); 
+            $log.debug('This is debugging.'); 
+        }); 
+</script> 
+</body> 
+</html>
