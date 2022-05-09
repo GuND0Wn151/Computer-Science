@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Switch</title>
+	<script src="angular.js"></script>
+
+</head>
+<body ng-app='myapp' ng-controller='myctrl'>
+<select  ng-model='qt'>
+<option value="1">Sheldon</option>
+  <option value="2">Penny</option>
+  <option value="5">Howard</option>
+  <option value="3">Raj</option>
+  <option value="4">Lenard</option>
+</select>
+
+<div ng-switch="qt">
+  <h1 ng-switch-when="1">Talented Physicist</h1>
+  <h1 ng-switch-when="2">FreeLoader</h1>
+  <h1 ng-switch-when="3">Introvert Indian</h1>
+  <h1 ng-switch-when="4">Genius Physicist</h1>
+  <h1 ng-switch-when="5">Pervert</h1>
+  <h1 ng-switch-default>Nothing Selected</h1>
+</div>
+
+<script type="text/javascript">
+	
+	var app=angular.module('myapp',[])
+	
+	app.controller('myctrl',function($scope){
+		$scope.message='Nothing';
+		
+		
+	})
+</script>
+</body>
+</html>
