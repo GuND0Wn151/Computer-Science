@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ng-bind price</title>
+	<script src="angular.js"></script>
+
+</head>
+<body ng-app='myapp' ng-controller='myctrl'>
+<h3>
+	Price = 250$ for one Item
+</h3>
+<select  ng-model='qt'>
+
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+<h3 ng-bind="qt*price"></h3>
+<script type="text/javascript">
+	var app=angular.module("myapp",[])
+	app.controller('myctrl',function($scope){
+		$scope.price=500;
+		$scope.quantity=0;
+		
+	})
+</script>
+</body>
+</html>
